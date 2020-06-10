@@ -103,6 +103,43 @@ namespace ChessApi
             return next;
         }
 
+        public bool IsCheck ()//проверка на шах
+        {
+            Board after = new Board(fen);//создаем копию доски 
+            after.moveColor = moveColor.FlipColor();//меняем ход 
+            return after.CanEatKing();//и проверяем можно ли съесть нашего короля 
+        }
+
+        public bool IsCheckAfterMove(FigureMoving fm)//будет ли поставлен шах после хода
+        {
+            Board after = Move(fm);
+            return after.CanEatKing();
+        }
         
+        bool CanEatKing()
+        {
+            Square badKing = FindBadKing();//найдем координату плохого короля
+            Moves moves = new Moves(this);//все возможные ходы
+            foreach (FigureOnSquare fs in YieldFigures())//по списку всех доступных фигур
+            {
+                FigureMoving fm = new FigureMoving(fs, badKing);//создаем ход который идет на короля
+                if (moves.CanMove(fm))//проверяем можно ли этот ход сделать 
+                    return true;//если да ,то поставлен шах
+            }
+            return false;
+        }
+
+        private Square FindBadKing()//поиск короля для которого возможен шах
+        {
+            Figure badKing = moveColor == Color.black ? Figure.whiteKing : Figure.blackKing;//для какого короля мы ищем шах
+            foreach(Square square in Square.YieldSquares())
+            {
+                if (GetFigureAt(square) == badKing)
+                {
+                    return square;
+                }
+            }
+            return Square.none;
+        }
     }
 }

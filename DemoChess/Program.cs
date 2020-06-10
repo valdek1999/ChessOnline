@@ -9,18 +9,31 @@ namespace DemoChess
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            Chess chess = new Chess("rnbqkbnr/p111111p/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+#pragma warning disable SecurityIntelliSenseCS // MS Security rules violation
+            Random random = new Random();
+#pragma warning restore SecurityIntelliSenseCS // MS Security rules violation
+            Chess chess = new Chess("rnbqkbnr/pppp1111/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+            List<string> list;
             while (true)
             {
+                
+                list = chess.GetAllMoves();
                 Console.WriteLine(chess.fen);
                 Print(ChessToAscii(chess));
-                foreach (string moves in chess.GetAllMoves())
-                    Console.WriteLine(moves +"\n");
+                Console.WriteLine(chess.IsCheck()? "ШАХ": "");
+                if(list.Count == 0)
+                {
+                    Console.WriteLine(chess.IsCheck() ? "Поставлен ШАХ и МАТ " + chess.ColorBoard() : "Поставлен Пат");
+                }    
+                foreach (string moves in list)
+                    Console.WriteLine(moves +"\t");
                 Console.Write("<все ходы которые возможно сделать>");
                 string move = Console.ReadLine();
-                if (move == "") break;
+                if (move == "q") break;
+                if (move == "") move = list[random.Next(list.Count)];
                 chess = chess.Move(move);
             }
         }
