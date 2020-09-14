@@ -44,6 +44,13 @@ namespace ChessApi
             return f == Figure.none ? '.':(char)f;
         }
 
+        public char GetFigureAt(string xy)//получить где находится фигура через строковый ввод
+        {
+            Square square = new Square(xy);
+            Figure f = board.GetFigureAt(square);
+            return f == Figure.none ? '.' : (char)f;
+        }
+
         void FindAllMoves()
         {
             allMoves = new List<FigureMoving>();
