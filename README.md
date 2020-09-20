@@ -12,5 +12,10 @@ WebServerApp - содержет веб-сервер приложение ,кот
 
 ConsoleChessGame- консольная сетевая игра по шахмам, работает через http://hardfoxy.ddns.net:7777/api/Chess url.
 
+Также можно играть в онлайн шахматы через сайт http://hardfoxy.ddns.net:7777/api/Chess посылая запросы на сервер.
+Пример запросов:
+http://hardfoxy.ddns.net:7777/api/Chess/{твой id}/ - создать новую игру ,или получить существующую.
+http://hardfoxy.ddns.net:7777/api/Chess/{твой id}/{id игры}/{ход}
+
 
 
