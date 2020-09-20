@@ -74,9 +74,9 @@ namespace ChessApi
             return list;
         }
 
-        public bool IsCheck()
+        public bool IsCheck()//помогает определить поставлен ли шах
         {
-            return board.IsCheck();
+            return board.IsCheck();//метод возращающий true,если поставлен шах
         }
         public string ColorBoard()
         {
