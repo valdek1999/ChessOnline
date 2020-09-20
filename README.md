@@ -18,7 +18,8 @@ ConsoleChessGame- консольная сетевая игра по шахмам
 
 http://hardfoxy.ddns.net:7777/api/Chess/{твой id}/ - создать новую игру ,или получить существующую.
 
-http://hardfoxy.ddns.net:7777/api/Chess/{твой id}/{id игры}/{ход}
+http://hardfoxy.ddns.net:7777/api/Chess/{твой id}/{id игры}/{ход} - совершить ход по указанной игре.
 
+Чтобы сделать правильный ход - прочтите FEN- нотацию по ссылке https://en.wikipedia.org/wiki/Fen
 
 
