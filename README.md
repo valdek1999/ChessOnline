@@ -20,6 +20,6 @@ http://hardfoxy.ddns.net:7777/api/Chess/{твой id}/ - создать нову
 
 http://hardfoxy.ddns.net:7777/api/Chess/{твой id}/{id игры}/{ход} - совершить ход по указанной игре.
 
-Чтобы сделать правильный ход - прочтите FEN- нотацию по ссылке https://en.wikipedia.org/wiki/Fen
+Чтобы сделать правильный ход - прочтите FEN- нотацию по ссылке https://ru.wikipedia.org/wiki/Нотация_Форсайта_—_Эдвардса
 
 
